@@ -31,10 +31,10 @@ class OneSignalServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('onesignal', function ($app) {
-            $config = isset($app['config']['services']['onesignal']) ? $app['config']['services']['onesignal'] : null;
-            if (is_null($config)) {
+//             $config = isset($app['config']['services']['onesignal']) ? $app['config']['services']['onesignal'] : null;
+//             if (is_null($config)) {
                 $config = $app['config']['onesignal'] ?: $app['config']['onesignal::config'];
-            }
+//             }
 
             return new OneSignalClient($config['app_id'], $config['rest_api_key'], $config['user_auth_key'] , $config['guzzle_client_timeout']);
         });
